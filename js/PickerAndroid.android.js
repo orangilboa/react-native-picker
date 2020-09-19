@@ -76,6 +76,7 @@ class PickerAndroid extends React.Component<
       const childProps = {
         value: child.props.value,
         label: child.props.label,
+        fontSize: child.props.fontSize
       };
       if (child.props.color) {
         /* $FlowFixMe(>=0.78.0 site=react_native_android_fb) This issue was

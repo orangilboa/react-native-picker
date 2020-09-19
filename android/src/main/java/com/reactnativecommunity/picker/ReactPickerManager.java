@@ -50,6 +50,7 @@ public abstract class ReactPickerManager extends SimpleViewManager<ReactPicker> 
   @ReactProp(name = ViewProps.COLOR, customType = "Color")
   public void setColor(ReactPicker view, @Nullable Integer color) {
     view.setPrimaryColor(color);
+    textView.setTextSize((float)item.getDouble("fontSize"));
     ReactPickerAdapter adapter = (ReactPickerAdapter) view.getAdapter();
     if (adapter != null) {
       adapter.setPrimaryTextColor(color);
