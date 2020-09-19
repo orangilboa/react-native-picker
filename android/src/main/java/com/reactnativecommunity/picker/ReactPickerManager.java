@@ -50,7 +50,6 @@ public abstract class ReactPickerManager extends SimpleViewManager<ReactPicker> 
   @ReactProp(name = ViewProps.COLOR, customType = "Color")
   public void setColor(ReactPicker view, @Nullable Integer color) {
     view.setPrimaryColor(color);
-    textView.setTextSize((float)item.getDouble("fontSize"));
     ReactPickerAdapter adapter = (ReactPickerAdapter) view.getAdapter();
     if (adapter != null) {
       adapter.setPrimaryTextColor(color);
@@ -145,6 +144,7 @@ public abstract class ReactPickerManager extends SimpleViewManager<ReactPicker> 
 
       TextView textView = (TextView) convertView;
       textView.setText(item.getString("label"));
+      textView.setTextSize(Float.parseFloat(item.getString("fontSize").replace("px", "")));
       if (!isDropdown && mPrimaryTextColor != null) {
         textView.setTextColor(mPrimaryTextColor);
       } else if (item.hasKey("color") && !item.isNull("color")) {
